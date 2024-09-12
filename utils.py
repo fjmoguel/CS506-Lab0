@@ -9,6 +9,7 @@ def dot_product(v1, v2):
     # Hint: use `np.dot`.
     '''
     ### YOUR CODE HERE
+    return np.dot(v1, v2)
     
 def cosine_similarity(v1, v2):
     '''
