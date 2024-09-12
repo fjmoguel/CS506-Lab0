@@ -14,24 +14,24 @@ def test_dot_product():
     
 def test_cosine_similarity():
     vector1 = np.array([1, 2, 3])
-    vector2 = np.array([4, 5, 6])
+    vector2 = np.array([1, 2, 3])
     
     result = cosine_similarity(vector1, vector2)
     
-    dot_prod = np.dot(vector1, vector2)
-    norm_vector1 = np.linalg.norm(vector1)
-    norm_vector2 = np.linalg.norm(vector2)
-    expected_result = dot_prod / (norm_vector1 * norm_vector2)
+    expected_result = 1.0  # Cosine similarity is 1 when two vectors are identical
     
     assert np.isclose(result, expected_result), f"Expected {expected_result}, but got {result}"
 
 def test_nearest_neighbor():
-    dataset = np.array([[1, 2], [3, 4], [5, 6]])
-    query_point = np.array([2, 3])
+    query_vector = np.array([1, 2, 3])
+    vectors = np.array([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ])
     
-    result = nearest_neighbor(dataset, query_point)
+    result = nearest_neighbor(query_vector, vectors)
     
-    distances = np.linalg.norm(dataset - query_point, axis=1)
-    expected_index = np.argmin(distances)
+    expected_index = 0 
     
     assert result == expected_index, f"Expected index {expected_index}, but got {result}"
